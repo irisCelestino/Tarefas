@@ -65,7 +65,7 @@ $resultado = mysqli_query($conexao,$sql);
 
   <div class = "todo-item">
       <span id="<?php  echo $todo["id"]; ?>"
-            class="remove-todo" >x</span>
+            class="remove-to-do" >x</span>
       <?php  if($todo['checked']){?> 
         <input type="checkbox" 
                class= "check-box" 
