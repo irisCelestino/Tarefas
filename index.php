@@ -30,16 +30,52 @@ require 'conexao.php';
 
   </form>
    </div>
+<?php
 
+$sql = ' SELECT * FROM 
+todos ORDER BY  id DESC ';
+$resultado = mysqli_query($conexao,$sql);
+
+?>
   <div class="show-todo-section">
-    <div class = "todo-item">
-      <input type="checkbox">
-      <h2>isso aqui</h2>
-      <br>
-      <small>criado: 28/08/3023</small>
+    <?php
+     if($resultado -> num_rows <= 0) { ?>
+  <div class = "todo-item">
+     <div class="empty">
+      <img src="img/focus.gif" width="80px" alt="">
+     </div>
     </div>
+<?php } ?>
 
-  </div>
+
+<?php while( $todo = $resultado->fetch_assoc() ){  ?>
+
+  <div class = "todo-item">
+      <span id="<?php  echo $todo["id"]; ?>"
+            class="remove-todo" >x</span>
+      <?php  if($todo['checked']){?> 
+        <input type="checkbox" 
+               class= "check-box" 
+               checked/>
+        <h2 class= "checked"><?php echo $todo ['titulo'] ?></h2>
+        <?php }else{ ?>
+          <input type="checkbox" 
+               class= "check-box" />
+        <h2><?php echo $todo ['titulo'] ?></h2>
+        <?php } ?>
+         <br>
+        <small>Criado: <?php echo $todo['data_hora'] ?> </small>
+     
+     </div>
+        <?php  } ?>
+      
+      
+
+     
+   
+  
+
+  
 </body>
 
 </html>
