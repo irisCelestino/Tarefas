@@ -15,14 +15,27 @@ require 'conexao.php';
 <body>
   <div class="main">
    <div class= "add-sessao">
-     <form action="" method="post">
-     <input 
+     <form action="app/add.php" method="POST" autocomplete="off">
+      <?php if(isset($_GET['mess'])&& $_GET['mess'] == 'error' ){ ?>
+        <input 
+     id ="atividade"
+     type="text" 
+     style= "border-color: ff6666"  
+     name="titulo" 
+     placeholder="Não pode deixar esse espaço em branco .." 
+     >
+   <button type="submit" id="btAdicionar">Adicionar &nbsp; </button>
+     <?php }else {  ?>
+     
+     
+        <input 
      id ="atividade"
      type="text"  
      name="titulo" 
      placeholder="Adicione uma atividade..." 
      >
    <button type="submit" id="btAdicionar">Adicionar &nbsp; </button>
+   <?php } ?>
 
 
    </div>
