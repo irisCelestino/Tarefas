@@ -44,11 +44,9 @@ require 'conexao.php';
   </form>
    
 <?php
-
 $sql = ' SELECT * FROM 
 todos ORDER BY  id DESC ';
 $resultado = mysqli_query($conexao,$sql);
-
 ?>
   <div class="show-todo-section">
     <?php
