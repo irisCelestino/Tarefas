@@ -42,7 +42,7 @@ require 'conexao.php';
   
 
   </form>
-   </div>
+   
 <?php
 
 $sql = ' SELECT * FROM 
@@ -52,7 +52,7 @@ $resultado = mysqli_query($conexao,$sql);
 ?>
   <div class="show-todo-section">
     <?php
-     if($resultado -> num_rows <= 0) { ?>
+     if($resultado -> num_rows > 0) { ?>
   <div class = "todo-item">
      <div class="empty">
       <img src="img/focus.gif" width="80px" alt="">
@@ -81,7 +81,7 @@ $resultado = mysqli_query($conexao,$sql);
      
      </div>
         <?php  } ?>
-      
+      </div>
       
 
      
