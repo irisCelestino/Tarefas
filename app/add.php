@@ -9,7 +9,8 @@ if (isset($_POST['titulo'])){
     header("Location:../index.php?mess=error");
   }else{
     $stmt = $conexao -> prepare("INSERT INTO todos(titulo) VALUE(?)");
-    $res = $stmt-> execute([$titulo]);
+    $stmt->bind_param("s",$titulo);
+    $res = $stmt-> execute();
 
     if($res){
       header("Location: ../index.php?mess=sucess");
